@@ -63,6 +63,7 @@ const organizationData = {
 		"https://www.instagram.com/p/DRU4YTCCc5o/",
 		"https://www.tiktok.com/@angelaventurachanchamayo",
 	],
+	priceRange: "$$",
 };
 ---
 
@@ -72,6 +73,7 @@ const organizationData = {
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
+		<meta name="google-site-verification" content="P3iuV2KQ2TuyvowrHT8RCDk00YlanUDbmsu0_krhFJE" />
 		<title>{finalTitle}</title>
 		<meta name="description" content={finalDescription} />
 		<meta name="robots" content="index, follow" />
@@ -94,20 +96,57 @@ const organizationData = {
 		<!-- Canonical URL -->
 		<link rel="canonical" href={Astro.url} />
 
-		<!-- Favicon -->
 		<!-- Favicons -->
 		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
-		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="/favicon-32x32.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="16x16"
+			href="/favicon-16x16.png"
+		/>
+		<link
+			rel="apple-touch-icon"
+			sizes="180x180"
+			href="/apple-touch-icon.png"
+		/>
 		<link rel="manifest" href="/site.webmanifest" />
 		<meta name="theme-color" content="#ffffff" />
+
+		<!-- Font Awesome -->
+		<link
+			rel="preconnect"
+			href="https://cdnjs.cloudflare.com"
+			crossorigin
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+			integrity="sha512-DTOQO9HC3rsH+RnxsBYUD1wCNh/I37dej/7k9Wj9VNkMu1EKolqbpuW+08GRcfm0GEcbw1a3ok7leCxvN"
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+			media="print"
+			onload="this.media='all'"
+		/>
+		<noscript>
+			<link
+				rel="stylesheet"
+				href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+			/>
+		</noscript>
 	</head>
 	<body>
 		<StructuredData type="TravelAgency" data={organizationData} />
 		<TopHeader />
 		<Navbar client:visible />
-		<slot />
+		<main>
+			<slot />
+		</main>
 		<Footer />
 	</body>
 </html>

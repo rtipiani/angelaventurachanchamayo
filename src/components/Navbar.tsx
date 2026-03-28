@@ -37,13 +37,13 @@ const Navbar: React.FC = () => {
   	return (
     	<nav className="bg-white py-4 shadow-md relative z-50">
       		<div className="container mx-auto flex justify-between items-center px-4 lg:px-6">
-        		<a href="/" className="flex items-center z-50 relative">
-          			<img src={logo.src} alt="Angela Aventura Tours" className="h-12 lg:h-16 object-contain" />
+        		<a href="/" className="flex items-center z-50 relative" aria-label="Volver al inicio">
+          			<img src={logo.src} alt="Logo Angel Aventura Tours" width="150" height="60" className="h-12 lg:h-16 object-contain" />
         		</a>
         		<ul className="hidden lg:flex items-center space-x-6 text-lg font-medium">
           			{menu.map((item, i) => item.dropdown ? (
               			<li key={i} className="relative group" onMouseEnter={() => setDesktopDropdownOpen(true)} onMouseLeave={() => setDesktopDropdownOpen(false)}>
-                			<button type="button" className="flex items-center gap-2 text-orange-800 hover:text-red-600 transition">
+                			<button type="button" className="flex items-center gap-2 text-orange-800 hover:text-red-600 transition" aria-haspopup="true" aria-expanded={desktopDropdownOpen}>
                   				{item.label}
                   				<i className={`fas fa-chevron-down text-sm transition-transform duration-300 ${ desktopDropdownOpen ? "rotate-180" : "" }`}/>
 							</button>
@@ -67,8 +67,15 @@ const Navbar: React.FC = () => {
             		))}
         		</ul>
 
-        		<button type="button" title="Abrir menú" onClick={() => setIsMenuOpen(!isMenuOpen)} className="lg:hidden text-3xl text-red-600 z-50 relative focus:outline-none">
-            		<i className={`fas ${isMenuOpen ? "fa-times" : "fa-bars"} transition-transform duration-300 ${ isMenuOpen ? "rotate-90" : "" }`} />
+        		<button 
+					type="button" 
+					title="Abrir menú" 
+					onClick={() => setIsMenuOpen(!isMenuOpen)} 
+					className="lg:hidden text-3xl text-red-600 z-50 relative focus:outline-none"
+					aria-label={isMenuOpen ? "Cerrar menú principal" : "Abrir menú principal"}
+					aria-expanded={isMenuOpen}
+				>
+            		<i className={`fas ${isMenuOpen ? "fa-times" : "fa-bars"} transition-transform duration-300 ${ isMenuOpen ? "rotate-90" : "" }`} aria-hidden="true" />
         		</button>
       		</div>
 

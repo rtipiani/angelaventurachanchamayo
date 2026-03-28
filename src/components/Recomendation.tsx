@@ -77,22 +77,35 @@ const Recomendation = () => {
                         const message = `¡Hola! Angel Aventura Tours. Estoy interesado en el paquete ${tour.days} - ${tour.title}.`;
                         const waLink = `https://wa.me/51918024860?text=${encodeURIComponent(message)}`;
                         return (
-                        <div key={index} className="bg-white rounded-lg shadow-md">
-                            <img src={tour.image.src} alt={tour.title} className="w-full h-56 object-cover rounded-t-lg" />
-                            <div className="p-6">
+                        <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden">
+                            <img 
+                                src={tour.image.src} 
+                                alt={tour.title} 
+                                width="400"
+                                height="224"
+                                className="w-full h-56 object-cover" 
+                                loading="lazy"
+                            />
+                            <div className="p-6 text-left">
                                 <h3 className="text-xl font-semibold mb-2">
                                     {tour.title}
                                 </h3>
-                                <p className="font-medium mb-2">
+                                <p className="font-medium mb-2 text-gray-700">
                                     {tour.days}
                                 </p>
-                                <p className="text-red-600 font-bold mb-3">
-                                        Desde S/. {tour.price}
-                                    </p>
-                                <p className="font-light mb-4">
+                                <p className="text-red-700 font-bold mb-3">
+                                    Desde S/. {tour.price}
+                                </p>
+                                <p className="font-light mb-4 text-gray-600 line-clamp-3">
                                     {tour.description}
                                 </p>
-                                <a href={waLink} target="_blank" className="inline-block px-4 py-2 bg-red-600 text-white rounded-md hover:bg-yellow-600">
+                                <a 
+                                    href={waLink} 
+                                    target="_blank" 
+                                    rel="noopener noreferrer"
+                                    className="inline-block px-4 py-2 bg-red-600 text-white rounded-md hover:bg-yellow-700 transition duration-200"
+                                    aria-label={`Consultar ahora sobre ${tour.title}`}
+                                >
                                     Consultar ahora
                                 </a>
                             </div>

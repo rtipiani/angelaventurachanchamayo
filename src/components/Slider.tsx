@@ -70,8 +70,11 @@ const Slider: React.FC = () => {
                         <img
                             src={slide.src}
                             alt={slide.alt}
+                            width="1920"
+                            height="1080"
                             className="w-full h-full object-cover"
                             loading={i === 0 ? "eager" : "lazy"}
+                            {...(i === 0 ? { fetchPriority: "high" } : {})}
                         />
                         <div className="absolute inset-0 bg-black/45 flex flex-col justify-center items-center text-center px-4 md:px-8 lg:px-12 text-white">
                             {i === 0 ? (

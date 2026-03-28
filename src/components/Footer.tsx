@@ -8,7 +8,7 @@ export default function Footer() {
         {/* LOGO + DESCRIPCIÓN */}
         <div>
           <img src={logo.src} alt="Angel Aventura Tours" className="w-36 mb-4" />
-          <p className="text-sm leading-relaxed">
+          <p className="text-white text-sm leading-relaxed">
             Agencia de viajes y turismo con más de 17 años de experiencia.
             Viaja con los mejores por toda la Selva Central.
           </p>
@@ -41,33 +41,35 @@ export default function Footer() {
         {/* INFORMACIÓN */}
         <div>
           <h3 className="text-white font-semibold mb-4">Información</h3>
-          <ul className="space-y-2 text-sm">
-            <li>
-              <i className="fa-solid fa-location-dot mr-2"></i>
-              Jr. Tarma N° 29O, Chanchamayo, La Merced
-            </li>
-            <li>
-              <i className="fa-solid fa-phone mr-2"></i>
-              +51 964 534 249
-            </li>
-            <li>
-              <i className="fa-solid fa-phone mr-2"></i>
-              +51 902 498 111
-            </li>
-            <li>
-              <i className="fa-solid fa-envelope mr-2"></i>
-              ventas@angeladventure.pe
-            </li>
-            <li>
-              <a
-                href="/nuestras-politicas"
-                className="hover:text-white transition-colors"
-              >
-                <i className="fa-solid fa-book mr-2"></i>
-                Nuestras Políticas
-              </a>
-            </li>
-          </ul>
+          <address className="not-italic space-y-2 text-sm text-white">
+            <ul className="space-y-2">
+              <li>
+                <i className="fa-solid fa-location-dot mr-2" aria-hidden="true"></i>
+                Jr. Tarma N° 29O, Chanchamayo, La Merced
+              </li>
+              <li>
+                <i className="fa-solid fa-phone mr-2" aria-hidden="true"></i>
+                <a href="tel:+51964534249" className="hover:underline">+51 964 534 249</a>
+              </li>
+              <li>
+                <i className="fa-solid fa-phone mr-2" aria-hidden="true"></i>
+                <a href="tel:+51902498111" className="hover:underline">+51 902 498 111</a>
+              </li>
+              <li>
+                <i className="fa-solid fa-envelope mr-2" aria-hidden="true"></i>
+                <a href="mailto:ventas@angeladventure.pe" className="hover:underline">ventas@angeladventure.pe</a>
+              </li>
+              <li>
+                <a
+                  href="/nuestras-politicas"
+                  className="hover:text-white transition-colors"
+                >
+                  <i className="fa-solid fa-book mr-2" aria-hidden="true"></i>
+                  Nuestras Políticas
+                </a>
+              </li>
+            </ul>
+          </address>
         </div>
 
         {/* REDES SOCIALES */}
