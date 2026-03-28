@@ -82,8 +82,9 @@ const tours = [
                     <Image 
                         src={tour.image} 
                         alt={tour.title} 
-                        width={400}
-                        height={224}
+                        widths={[400, 800]}
+                        sizes="(max-width: 640px) 400px, 800px"
+                        quality="mid"
                         class="w-full h-56 object-cover" 
                         loading="lazy"
                     />

@@ -33,11 +33,11 @@ const slides = [
     <div class="slider-container flex transition-transform duration-700 ease-in-out h-full">
         {slides.map((slide, i) => (
             <div class="relative flex shrink-0 w-full h-full">
-                <Image
+                 <Image
                     src={slide.src}
                     alt={slide.alt}
-                    width={1920}
-                    height={1080}
+                    widths={[400, 800, 1200, 1920]}
+                    sizes="(max-width: 640px) 400px, (max-width: 1024px) 800px, 1920px"
                     format="webp"
                     quality="mid"
                     class="w-full h-full object-cover"

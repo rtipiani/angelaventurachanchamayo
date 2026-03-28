@@ -3,6 +3,9 @@ import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import TopHeader from "../components/TopHeader";
 import StructuredData from "../components/StructuredData.astro";
+import logo from "../assets/images/logo.webp";
+import slide1 from "../assets/images/slide1.png";
+import { getImage } from "astro:assets";
 import "../styles/global.css";
 
 export interface Props {
@@ -65,6 +68,12 @@ const organizationData = {
 	],
 	priceRange: "$$",
 };
+
+const optimizedLogo = await getImage({ src: logo, width: 300, format: 'webp' });
+
+// Preload para el LCP (Imagen 1 del Slider)
+const mobileLCP = await getImage({ src: slide1, width: 400, format: 'webp' });
+const desktopLCP = await getImage({ src: slide1, width: 1920, format: 'webp' });
 ---
 
 <!doctype html>
@@ -116,6 +125,10 @@ const organizationData = {
 		/>
 		<link rel="manifest" href="/site.webmanifest" />
 		<meta name="theme-color" content="#ffffff" />
+		
+		<!-- Preload LCP Images -->
+		<link rel="preload" as="image" href={mobileLCP.src} media="(max-width: 640px)" />
+		<link rel="preload" as="image" href={desktopLCP.src} media="(min-width: 641px)" />
 
 		<!-- Font Awesome -->
 		<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
@@ -123,7 +136,7 @@ const organizationData = {
 	<body>
 		<StructuredData type="TravelAgency" data={organizationData} />
 		<TopHeader />
-		<Navbar client:visible />
+		<Navbar client:visible logoUrl={optimizedLogo.src} />
 		<main>
 			<slot />
 		</main>

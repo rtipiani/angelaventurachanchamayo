@@ -1,4 +1,3 @@
-import logo from "../assets/images/logo.webp";
 import React, { useState, useEffect } from "react";
 
 const menu = [
@@ -18,7 +17,7 @@ const menu = [
   	// { label: "Contáctanos", href: "/contactanos" },
 ];
 
-const Navbar: React.FC = () => {
+const Navbar: React.FC<{ logoUrl: string }> = ({ logoUrl }) => {
   	const [isMenuOpen, setIsMenuOpen] = useState(false);
  	const [desktopDropdownOpen, setDesktopDropdownOpen] = useState(false);
   	const [mobileDropdownOpenIndex, setMobileDropdownOpenIndex] = useState<number | null>(null);
@@ -38,7 +37,7 @@ const Navbar: React.FC = () => {
     	<nav className="bg-white py-4 shadow-md relative z-50">
       		<div className="container mx-auto flex justify-between items-center px-4 lg:px-6">
         		<a href="/" className="flex items-center z-50 relative" aria-label="Volver al inicio">
-          			<img src={logo.src} alt="Logo Angel Aventura Tours" width="150" height="60" className="h-12 lg:h-16 object-contain" />
+          			<img src={logoUrl} alt="Logo Angel Aventura Tours" width="150" height="60" className="h-12 lg:h-16 object-contain" />
         		</a>
         		<ul className="hidden lg:flex items-center space-x-6 text-lg font-medium">
           			{menu.map((item, i) => item.dropdown ? (
