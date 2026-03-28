@@ -2,18 +2,109 @@
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import TopHeader from "../components/TopHeader";
+import StructuredData from "../components/StructuredData.astro";
 import "../styles/global.css";
+
+export interface Props {
+	title?: string;
+	description?: string;
+	image?: string;
+	keywords?: string;
+}
+
+const { title, description, image, keywords } = Astro.props;
+const defaultTitle =
+	"Angel Aventura Tours | Operador Turístico Calificado Por MINCETUR";
+const finalTitle = title ? `${title} | Angel Aventura Tours` : defaultTitle;
+const defaultDescription =
+	"Descubre los mejores tours en la Selva Central del Perú. Operador turístico calificado por MINCETUR con más de 10 años de experiencia en Chanchamayo, Oxapampa y Pozuzo.";
+const finalDescription = description || defaultDescription;
+const defaultImage = "/og-image.png";
+const finalImage = image || defaultImage;
+
+// Datos estructurados para el negocio local
+const organizationData = {
+	name: "Angel Aventura Tours",
+	description:
+		"Operador turístico calificado por MINCETUR especializado en tours por la Selva Central del Perú",
+	url: "https://angelaventurachanchamayo.com",
+	logo: "https://angelaventurachanchamayo.com/favicon-32x32.png",
+	image: "https://angelaventurachanchamayo.com/og-image.png",
+	telephone: "+51 964 534 249",
+	address: {
+		"@type": "PostalAddress",
+		streetAddress: "Jr. Tarma N° 29O",
+		addressLocality: "La Merced",
+		addressRegion: "Chanchamayo",
+		postalCode: "12841",
+		addressCountry: "PE",
+	},
+	geo: {
+		"@type": "GeoCoordinates",
+		latitude: "-11.0583",
+		longitude: "-75.3283",
+	},
+	openingHoursSpecification: {
+		"@type": "OpeningHoursSpecification",
+		dayOfWeek: [
+			"Monday",
+			"Tuesday",
+			"Wednesday",
+			"Thursday",
+			"Friday",
+			"Saturday",
+			"Sunday",
+		],
+		opens: "08:00",
+		closes: "20:00",
+	},
+	sameAs: [
+		"https://www.facebook.com/Angelaventuraturismochanc/",
+		"https://www.instagram.com/p/DRU4YTCCc5o/",
+		"https://www.tiktok.com/@angelaventurachanchamayo",
+	],
+};
 ---
+
 <!doctype html>
 <html lang="es">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Angel Aventura Tours | Operador Turístico Calificado Por MINCETUR</title>
+		<title>{finalTitle}</title>
+		<meta name="description" content={finalDescription} />
+		<meta name="robots" content="index, follow" />
+		{keywords && <meta name="keywords" content={keywords} />}
+
+		<!-- Open Graph -->
+		<meta property="og:title" content={finalTitle} />
+		<meta property="og:description" content={finalDescription} />
+		<meta property="og:image" content={new URL(finalImage, Astro.url)} />
+		<meta property="og:url" content={Astro.url} />
+		<meta property="og:type" content="website" />
+		<meta property="og:site_name" content="Angel Aventura Tours" />
+
+		<!-- Twitter Card -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={finalTitle} />
+		<meta name="twitter:description" content={finalDescription} />
+		<meta name="twitter:image" content={new URL(finalImage, Astro.url)} />
+
+		<!-- Canonical URL -->
+		<link rel="canonical" href={Astro.url} />
+
+		<!-- Favicon -->
+		<!-- Favicons -->
+		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+		<link rel="manifest" href="/site.webmanifest" />
+		<meta name="theme-color" content="#ffffff" />
 	</head>
 	<body>
+		<StructuredData type="TravelAgency" data={organizationData} />
 		<TopHeader />
 		<Navbar client:visible />
 		<slot />

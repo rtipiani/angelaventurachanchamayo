@@ -65,9 +65,9 @@ const Recomendation = () => {
     return (
         <section className="py-16 bg-gray-50">
             <div className="max-w-7xl mx-auto text-center">
-                <h2 className="text-3xl md:text-4xl font-semibold mb-12 px-4 sm:px-8">
+                <h1 className="text-3xl md:text-4xl font-semibold mb-12 px-4 sm:px-8">
                     Tours <br /> Selva Central
-                </h2>
+                </h1>
 
                 {/* Cards */}
                 <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-8">

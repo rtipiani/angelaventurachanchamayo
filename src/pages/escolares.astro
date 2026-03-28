@@ -1,7 +1,11 @@
 ---
 import TourEscolares from "../components/TourEscolares"
 import Layout from "../layouts/Layout.astro"
+
+const title = "Tours Escolares";
+const description = "Tours educativos para escuelas en la Selva Central del Perú. Experiencias de aprendizaje en Chanchamayo, Oxapampa y Pozuzo para estudiantes.";
+const keywords = "tours escolares, viajes escolares Perú, educación ambiental, tours estudiantes, Chanchamayo escolares";
 ---
-<Layout>
+<Layout title={title} description={description} keywords={keywords}>
     <TourEscolares />
 </Layout>

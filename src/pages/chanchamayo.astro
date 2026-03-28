@@ -1,7 +1,11 @@
 ---
 import TourChanchamayo from "../components/TourChanchamayo"
 import Layout from "../layouts/Layout.astro"
+
+const title = "Tours en Chanchamayo";
+const description = "Explora Chanchamayo con nuestros tours guiados. Descubre cataratas, plantaciones de café y la cultura de la selva central del Perú.";
+const keywords = "tours Chanchamayo, cataratas Chanchamayo, café Chanchamayo, selva central Perú, viajes Chanchamayo";
 ---
-<Layout>
+<Layout title={title} description={description} keywords={keywords}>
     <TourChanchamayo />
 </Layout>

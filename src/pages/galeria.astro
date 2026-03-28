@@ -1,7 +1,11 @@
 ---
 import Gallery from "../components/Galeria";
 import Layout from "../layouts/Layout.astro";
+
+const title = "Galería de Fotos";
+const description = "Galería de fotos de nuestros tours en Chanchamayo, Oxapampa y la Selva Central. Descubre la belleza natural y cultural del Perú.";
+const keywords = "galería tours, fotos Chanchamayo, imágenes Oxapampa, fotos viajes Perú, selva central fotos";
 ---
-<Layout>
+<Layout title={title} description={description} keywords={keywords}>
     <Gallery client:load />
 </Layout>

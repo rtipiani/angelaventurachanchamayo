@@ -13,10 +13,10 @@ const NuestrosSocios = () => {
                 </h2>
 
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-center">
-                    <img src={socio1.src} alt="Mincetur" className="w-full max-h-24 object-contain" />
-                    <img src={socio2.src} alt="PromPerú" className="w-full max-h-24 object-contain" />
-                    <img src={socio3.src} alt="Dircetur Junin" className="w-full max-h-24 object-contain" />
-                    <img src={socio4.src} alt="Y tú que planes?" className="w-full max-h-24 object-contain" />
+                    <img src={socio1.src} alt="Mincetur" className="w-full max-h-24 object-contain" loading="lazy" />
+                    <img src={socio2.src} alt="PromPerú" className="w-full max-h-24 object-contain" loading="lazy" />
+                    <img src={socio3.src} alt="Dircetur Junin" className="w-full max-h-24 object-contain" loading="lazy" />
+                    <img src={socio4.src} alt="Y tú que planes?" className="w-full max-h-24 object-contain" loading="lazy" />
                 </div>
 
             </div>

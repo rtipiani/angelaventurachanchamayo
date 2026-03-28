@@ -1,0 +1,15 @@
+---
+// src/components/StructuredData.astro
+export interface Props {
+  type: 'LocalBusiness' | 'TouristAttraction' | 'WebSite' | 'Organization' | 'TravelAgency';
+  data: any;
+}
+
+const { type, data } = Astro.props;
+---
+
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": type,
+  ...data
+})} />
