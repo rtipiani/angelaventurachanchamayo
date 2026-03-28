@@ -1,0 +1,45 @@
+---
+import { Image } from 'astro:assets';
+import visa from "../assets/images/visa.avif";
+import mastercard from "../assets/images/mastercard.avif";
+import yape from "../assets/images/yape.avif";
+import plin from "../assets/images/plin.avif";
+import paypal from "../assets/images/paypal.avif";
+import wester from "../assets/images/western-union.avif";
+
+const pagos = [
+    { src: visa, alt: "Logotipo de Visa - Tarjetas de Crédito y Débito" },
+    { src: mastercard, alt: "Logotipo de Mastercard - Tarjetas de Crédito y Débito" },
+    { src: yape, alt: "Logotipo de Yape - Billetera Digital del BCP" },
+    { src: plin, alt: "Logotipo de Plin - Billetera Digital Multibanco" },
+    { src: wester, alt: "Logotipo de Western Union - Transferencias Internacionales" },
+    { src: paypal, alt: "Logotipo de PayPal - Pagos Online Seguros" }
+];
+---
+
+<section class="py-16 bg-gray-50 border-t border-gray-100">
+    <div class="max-w-7xl mx-auto text-center px-4">
+        <h2 class="text-3xl md:text-4xl font-semibold mb-6">
+            Medios de Pago
+        </h2>
+
+        <p class="text-gray-600 mb-10 max-w-2xl mx-auto">
+            Aceptamos los principales métodos de pago para tu comodidad y seguridad en cada reserva.
+        </p>
+
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-8 items-center justify-center opacity-80 hover:opacity-100 transition-opacity duration-500">
+            {pagos.map((pago) => (
+                <div class="flex items-center justify-center h-16 p-2">
+                    <Image 
+                        src={pago.src} 
+                        alt={pago.alt} 
+                        width={120}
+                        height={60}
+                        class="max-w-full max-h-full object-contain filter drop-shadow-sm" 
+                        loading="lazy"
+                    />
+                </div>
+            ))}
+        </div>
+    </div>
+</section>

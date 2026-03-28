@@ -1,16 +1,16 @@
 ---
-import Pagos from '../components/Pagos';
-import Recomendation from '../components/Recomendation';
-import Slider from '../components/Slider';
-import Socios from '../components/Socios';
+import Pagos from '../components/Pagos.astro';
+import Recomendation from '../components/Recomendation.astro';
+import Slider from '../components/Slider.astro';
+import Socios from '../components/Socios.astro';
 import Layout from '../layouts/Layout.astro';
 
-const title = "Tours en Chanchamayo y Selva Central";
-const description = "Descubre los mejores tours en la Selva Central del Perú. Operador turístico calificado por MINCETUR con más de 10 años de experiencia en Chanchamayo, Oxapampa y Pozuzo.";
+const title = "Inicio";
+const description = "Explora los mejores paquetes turísticos en Chanchamayo, Oxapampa y Pozuzo. Disfruta de la mejor experiencia de aventura y naturaleza con Angel Aventura Tours.";
 const keywords = "tours Chanchamayo, tours Oxapampa, tours Selva Central, turismo Perú, operador turístico MINCETUR, Pozuzo, viajes aventura";
 ---
 <Layout title={title} description={description} keywords={keywords}>
-	<Slider client:load />
+	<Slider />
 	<Recomendation />
 	<Socios />
 	<Pagos />

@@ -45,7 +45,9 @@ const Navbar: React.FC = () => {
               			<li key={i} className="relative group" onMouseEnter={() => setDesktopDropdownOpen(true)} onMouseLeave={() => setDesktopDropdownOpen(false)}>
                 			<button type="button" className="flex items-center gap-2 text-orange-800 hover:text-red-600 transition" aria-haspopup="true" aria-expanded={desktopDropdownOpen}>
                   				{item.label}
-                  				<i className={`fas fa-chevron-down text-sm transition-transform duration-300 ${ desktopDropdownOpen ? "rotate-180" : "" }`}/>
+                  				<svg className={`w-4 h-4 transition-transform duration-300 ${ desktopDropdownOpen ? "rotate-180" : "" }`} fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
+                                </svg>
 							</button>
 
                 			<ul className={`absolute left-0 mt-3 w-48 bg-white shadow-xl rounded-lg py-2 text-orange-800 border border-orange-200/50 transition-all duration-200 origin-top z-50 before:absolute before:-top-3 before:left-0 before:w-full before:h-3 before:content-[''] ${desktopDropdownOpen ? "opacity-100 scale-y-100" : "opacity-0 scale-y-0 pointer-events-none"}`}>
@@ -75,7 +77,13 @@ const Navbar: React.FC = () => {
 					aria-label={isMenuOpen ? "Cerrar menú principal" : "Abrir menú principal"}
 					aria-expanded={isMenuOpen}
 				>
-            		<i className={`fas ${isMenuOpen ? "fa-times" : "fa-bars"} transition-transform duration-300 ${ isMenuOpen ? "rotate-90" : "" }`} aria-hidden="true" />
+            		<svg className={`w-8 h-8 transition-transform duration-300 ${ isMenuOpen ? "rotate-90" : "" }`} fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        {isMenuOpen ? (
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
+                        ) : (
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        )}
+                    </svg>
         		</button>
       		</div>
 
@@ -84,7 +92,9 @@ const Navbar: React.FC = () => {
       		<div className={`fixed top-0 right-0 h-full w-[80%] max-w-sm bg-white shadow-2xl z-50 transform transition-all duration-500 ease-in-out lg:hidden ${ isMenuOpen ? "translate-x-0 opacity-100 scale-100" : "translate-x-full opacity-0 scale-95" }`}>
         		<div className="flex flex-col h-full pt-6 pb-6 px-6 overflow-y-auto">
           			<button type="button" className="self-end text-3xl text-red-600 mb-6 focus:outline-none" onClick={() => setIsMenuOpen(false)} aria-label="Cerrar menú">
-            			<i className="fas fa-times" />
+            			<svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
           			</button>
 
           			<ul className="flex flex-col space-y-4 text-lg font-medium text-orange-900">
@@ -92,7 +102,9 @@ const Navbar: React.FC = () => {
                 			<li key={i} className="border-b border-orange-100 pb-2">
                   				<button type="button" onClick={() => setMobileDropdownOpenIndex(mobileDropdownOpenIndex === i ? null : i)} className="w-full flex justify-between items-center py-2 text-orange-800 hover:text-red-600 transition-colors">
                     				{item.label}
-                    				<i className={`fas fa-chevron-down transition-transform duration-300 ${ mobileDropdownOpenIndex === i ? "rotate-180" : "" }`}/>
+                    				<svg className={`w-5 h-5 transition-transform duration-300 ${ mobileDropdownOpenIndex === i ? "rotate-180" : "" }`} fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
+                                    </svg>
                   				</button>
 
                   				<div className={`overflow-hidden transition-all duration-500 ease-in-out ${ mobileDropdownOpenIndex === i ? "max-h-96 opacity-100 mt-2" : "max-h-0 opacity-0" }`}>
