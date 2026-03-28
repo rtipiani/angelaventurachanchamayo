@@ -87,19 +87,26 @@ const desktopLCP = await getImage({ src: slide1, width: 1920, format: 'webp' });
 		<meta name="robots" content="index, follow" />
 		{keywords && <meta name="keywords" content={keywords} />}
 
-		<!-- Open Graph -->
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={Astro.url} />
 		<meta property="og:title" content={finalTitle} />
 		<meta property="og:description" content={finalDescription} />
-		<meta property="og:image" content={new URL(finalImage, Astro.url)} />
-		<meta property="og:url" content={Astro.url} />
-		<meta property="og:type" content="website" />
+		<meta property="og:image" content={new URL('/og-image-v2.png', Astro.url)} />
+		<meta property="og:image:secure_url" content={new URL('/og-image-v2.png', Astro.url)} />
+		<meta property="og:image:type" content="image/png" />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
+		<meta property="og:image:alt" content="Angel Aventura Tours - Operador Turístico en la Selva Central" />
+		<meta property="og:locale" content="es_PE" />
 		<meta property="og:site_name" content="Angel Aventura Tours" />
 
-		<!-- Twitter Card -->
+		<!-- Twitter -->
 		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:url" content={Astro.url} />
 		<meta name="twitter:title" content={finalTitle} />
 		<meta name="twitter:description" content={finalDescription} />
-		<meta name="twitter:image" content={new URL(finalImage, Astro.url)} />
+		<meta name="twitter:image" content={new URL('/og-image-v2.png', Astro.url)} />
 
 		<!-- Canonical URL -->
 		<link rel="canonical" href={Astro.url} />
