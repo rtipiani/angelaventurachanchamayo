@@ -1,1 +1,29 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* Mejora de visibilidad del foco para navegación por teclado (A11y) */
+  :focus-visible {
+    outline: 3px solid #dc2626 !important; /* Rojo fuerte para contraste */
+    outline-offset: 2px;
+  }
+
+  /* Asegurar que el scroll sea suave pero respetuoso con preferencias de usuario */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
+
+@layer components {
+  /* Ajuste de contraste para botones con fondo naranja/amarillo en hover (A11y) */
+  .btn-accessible-hover:hover {
+    filter: brightness(0.9); /* Oscurece un poco para que el blanco resalte más */
+  }
+}

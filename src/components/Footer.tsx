@@ -28,12 +28,12 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-red-600 text-gray-200 py-12 mt-10">
+    <footer className="bg-red-600 text-gray-200 py-12 mt-10" role="contentinfo">
       <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-10">
 
         {/* LOGO + DESCRIPCIÓN */}
         <div>
-          <img src={logo.src} alt="Angel Aventura Tours" className="w-36 mb-4" />
+          <img src={logo.src} alt="Logo Angel Aventura Tours - Operador Turístico" className="w-36 mb-4" />
           <p className="text-white text-sm leading-relaxed">
             Agencia de viajes y turismo con más de 17 años de experiencia.
             Viaja con los mejores por toda la Selva Central.
@@ -41,8 +41,8 @@ export default function Footer() {
         </div>
 
         {/* ENLACES */}
-        <div>
-          <h3 className="text-white font-semibold mb-4 text-lg">Enlaces</h3>
+        <section aria-labelledby="footer-links-title">
+          <h3 id="footer-links-title" className="text-white font-semibold mb-4 text-lg">Enlaces</h3>
           <ul className="space-y-2 text-sm">
             {[
               { label: "Inicio", href: "/" },
@@ -55,52 +55,52 @@ export default function Footer() {
               <li key={idx}>
                 <a
                   href={item.href}
-                  className="hover:text-white transition-colors"
+                  className="hover:text-white focus:text-white focus:underline focus:outline-none focus:ring-2 focus:ring-white/50 rounded px-1 transition-colors"
                 >
                   {item.label}
                 </a>
               </li>
             ))}
           </ul>
-        </div>
+        </section>
 
         {/* INFORMACIÓN */}
-        <div>
-          <h3 className="text-white font-semibold mb-4 text-lg">Información</h3>
+        <section aria-labelledby="footer-info-title">
+          <h3 id="footer-info-title" className="text-white font-semibold mb-4 text-lg">Información</h3>
           <address className="not-italic space-y-3 text-sm text-white">
             <ul className="space-y-3">
               <li className="flex items-start">
-                <MapPin className="w-5 h-5 mr-3 text-white shrink-0" strokeWidth={2} />
+                <MapPin className="w-5 h-5 mr-3 text-white shrink-0" strokeWidth={2} aria-hidden="true" />
                 <span>Jr. Tarma N° 29O, Chanchamayo, La Merced</span>
               </li>
               <li className="flex items-center">
-                <Phone className="w-5 h-5 mr-3 text-white shrink-0" strokeWidth={2} />
-                <a href="tel:+51964534249" className="hover:underline">+51 964 534 249</a>
+                <Phone className="w-5 h-5 mr-3 text-white shrink-0" strokeWidth={2} aria-hidden="true" />
+                <a href="tel:+51964534249" className="hover:underline focus:ring-2 focus:ring-white/50 rounded px-1">+51 964 534 249</a>
               </li>
               <li className="flex items-center">
-                <Phone className="w-5 h-5 mr-3 text-white shrink-0" strokeWidth={2} />
-                <a href="tel:+51902498111" className="hover:underline">+51 902 498 111</a>
+                <Phone className="w-5 h-5 mr-3 text-white shrink-0" strokeWidth={2} aria-hidden="true" />
+                <a href="tel:+51902498111" className="hover:underline focus:ring-2 focus:ring-white/50 rounded px-1">+51 902 498 111</a>
               </li>
               <li className="flex items-center">
-                <Mail className="w-5 h-5 mr-3 text-white shrink-0" strokeWidth={2} />
-                <a href="mailto:ventas@angeladventure.pe" className="hover:underline">ventas@angeladventure.pe</a>
+                <Mail className="w-5 h-5 mr-3 text-white shrink-0" strokeWidth={2} aria-hidden="true" />
+                <a href="mailto:ventas@angeladventure.pe" className="hover:underline focus:ring-2 focus:ring-white/50 rounded px-1">ventas@angeladventure.pe</a>
               </li>
               <li className="flex items-center">
                 <a
                   href="/nuestras-politicas"
-                  className="hover:text-white transition-colors flex items-center"
+                  className="hover:text-white transition-colors flex items-center focus:ring-2 focus:ring-white/50 rounded px-1"
                 >
-                  <BookOpen className="w-5 h-5 mr-3 text-white shrink-0" strokeWidth={2} />
+                  <BookOpen className="w-5 h-5 mr-3 text-white shrink-0" strokeWidth={2} aria-hidden="true" />
                   Nuestras Políticas
                 </a>
               </li>
             </ul>
           </address>
-        </div>
+        </section>
 
         {/* REDES SOCIALES */}
-        <div>
-          <h3 className="text-white font-semibold mb-4 text-lg">Síguenos</h3>
+        <section aria-labelledby="footer-social-title">
+          <h3 id="footer-social-title" className="text-white font-semibold mb-4 text-lg">Síguenos</h3>
           <div className="flex gap-4 mt-4">
             {socialLinks.map((social, idx) => {
               const Icon = social.icon;
@@ -110,15 +110,15 @@ export default function Footer() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label={`${social.label} Angel Aventura Tours`}
-                  className="bg-white p-2 rounded-full flex items-center justify-center w-10 h-10 hover:bg-orange-100 transition shadow-sm text-red-600"
+                  aria-label={`${social.label} de Angel Aventura Tours (abre en nueva pestaña)`}
+                  className="bg-white p-2 rounded-full flex items-center justify-center w-10 h-10 hover:bg-orange-100 focus:ring-4 focus:ring-orange-200 transition shadow-sm text-red-600 focus:outline-none"
                 >
-                  <Icon className="w-6 h-6" />
+                  <Icon className="w-6 h-6" aria-hidden="true" />
                 </a>
               );
             })}
           </div>
-        </div>
+        </section>
       </div>
 
       {/* COPYRIGHT */}
