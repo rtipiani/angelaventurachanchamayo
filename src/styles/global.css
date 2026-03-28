@@ -1,6 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 @layer base {
   /* Mejora de visibilidad del foco para navegación por teclado (A11y) */
